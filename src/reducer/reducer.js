@@ -7,8 +7,8 @@ const contact = [
 
 function counterReducer(state = contact, action) {
   switch (action.type) {
-    case "counter/incremented":
-      return { value: state.value + 1 };
+    case "ADD_CONTACT":
+      return [...state, action.payload];
     case "counter/decremented":
       return { value: state.value - 1 };
     default:
