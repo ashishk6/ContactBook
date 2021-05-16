@@ -3,18 +3,26 @@ import { useSelector, useDispatch } from "react-redux";
 
 function Home() {
   const abc = useSelector((state) => state);
+  const dispatch = useDispatch();
+  function deleteContact(i) {
+    console.log(i);
+    dispatch({ type: "DELETE_CONTACT", payload: i });
+  }
+
   const abcd = () => console.log(abc);
-  const list = abc.map((xyz) => (
+  const list = abc.map((xyz, i) => (
     <>
       <tr>
         <td>{xyz.name}</td>
         <td>{xyz.mobile}</td>
         <td>{xyz.address}</td>
         <td>
-          <button>Edit</button>
+          <button>
+            <Link to={"/editContact/" + i}>Edit</Link>
+          </button>
         </td>
         <td>
-          <button>Delete</button>
+          <button onClick={() => deleteContact(i)}>Delete</button>
         </td>
       </tr>
     </>

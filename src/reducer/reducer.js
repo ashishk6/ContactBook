@@ -9,8 +9,11 @@ function counterReducer(state = contact, action) {
   switch (action.type) {
     case "ADD_CONTACT":
       return [...state, action.payload];
-    case "counter/decremented":
-      return { value: state.value - 1 };
+    case "DELETE_CONTACT":
+      state.splice(action.payload, 1);
+      return [...state];
+    case "EDIT_CONTACT":
+      return [...action.payload];
     default:
       return state;
   }

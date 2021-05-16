@@ -21,7 +21,7 @@ export default function App() {
         <Route path="/addContact">
           <AddContact></AddContact>
         </Route>
-        <Route path="/editContact">
+        <Route path="/editContact/:id">
           <EditContact></EditContact>
         </Route>
       </Router>
